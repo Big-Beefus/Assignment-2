@@ -1,21 +1,17 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Everett Krantz and Caitlyn Taylor
+ * CS 465
+ * Code format to make a two-dimensional ArrayList was taken from 
+ * https://www.baeldung.com/java-multi-dimensional-arraylist
+ *
  */
 package assignment2;
+import java.util.*;
 
-/**
- *
- * @author Kelly
- */
-public class PermissionEvaluatorDriver {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
-    
+public class PermissionEvaluatorDriver 
+{
+    public static void main(String[] args) 
+    {
+        
+    }    
 }
