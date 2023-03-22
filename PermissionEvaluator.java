@@ -36,11 +36,17 @@ public class PermissionEvaluator
         
         switch(choice)
         {
-            case 1:
+            case "1":
                 System.out.println("Please enter the filepath of the file you"
                         + "wish to load from: ");
                 String filepath = input.nextLine();
-            case 2:
+                
+            case "2":
+            
+            case "3" :
+                System.out.println("Please enter the filepath of the file you"
+                        + "wish to update: ");
+                 String filepath = input.nextLine();      
                 
         }
                     
