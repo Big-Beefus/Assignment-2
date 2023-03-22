@@ -2,7 +2,6 @@
  * Everett Krantz and Caitlyn Taylor
  * CS 465
  * 
- * 
  */
 package assignment2;
 import java.util.*;
@@ -10,7 +9,7 @@ import java.io.*;
 
 public class PermissionEvaluator 
 {   
-    private HashMap<String, Map<String, Set<String>>> permissionsMap = new HashMap<>();
+    private HashMap<String, HashMap<String, String>> permissionsMap = new HashMap<>();
     
     //No args constructor
     public PermissionEvaluator()
@@ -30,29 +29,43 @@ public class PermissionEvaluator
     {
         String choice;
         Scanner input = new Scanner(System.in);
+        //DO-while loop that continuously asks the user to enter an option until
+        //they enter q to exit
         do
         {
-            System.out.println("Please choose one of these four options:\n"
+            //Prompting the user to choose an option and putting that input into the choice variable
+            System.out.println("Please choose one of these four options, or enter q to quit:\n"
                     + "Option 1: Load input entries\n"
                     + "Option 2: Print ACM\n"
                     + "Option 3: Update ACM entries from a file\n"
                     + "Option 4: Evaluate access requests from a file");
             choice = input.nextLine();
- 
+            
+            //Switch case for possible choices with an error message if none are entered.
             switch(choice)
             {
+                //Loads input entries from a file
                 case "1":
                     System.out.println("Please enter the filepath of the file you"
-                            + "wish to load from or enter q to quit: ");
+                            + "wish to load from: ");
                     String filepath = input.nextLine();
+                    loadFromFile(filepath);
+                    
+                //Prints the ACM
                 case "2":
                     loadFromFile("");
-                case "3":
                     
+                //Processes ACM entry updates from a given file
+                case "3":
+                    //updateACM();
+                    
+                //Evaluates ACM requests given current information    
                 case "4":
                     evaluate();
+                    
+                //Error message for invalid inputs
                 default:
-                    System.out.println("Invalid input");
+                    System.out.println("Invalid input. Please enter a valid option.");
             }
         }while(!"q".equals(choice));
                     
@@ -79,8 +92,7 @@ public class PermissionEvaluator
                 if (!user.equals("") && !fileName.equals("") && !permissions.equals(""))
                 { 
                     //addToACM(user, fileName, permissions);
-                }
-                    
+                }       
             }
             
         }
@@ -132,16 +144,30 @@ public class PermissionEvaluator
     }
     */
     
+    //Method to update the ACM permissions by adding or removing them
+    public void updateACM(String action, String user, String fileName, String permissions)
+    {
+        
+    }
+    
+    //Method to evaluate ACM requests from a file
     public void evaluate()
     {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Please enter the filepath of the file you"
+                            + "wish to evaluate: ");
+        String filepath = input.nextLine();
+        loadFromFile(filepath);
+        
         
     }
     
     @Override
     public String toString()
     {
-       System.out.println("Username: " + getName());
-       System.out.println("File name: " + getNumCars());
+       System.out.println("Username: " + get(user));
+       System.out.println("File name: " + get(fileName));
+       System.out.println("Permissions: " + get(permissions));
        System.out.println("==========================================");
        for(String m:permissionsMap.keySet())
        {
