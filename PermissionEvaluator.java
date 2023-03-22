@@ -40,7 +40,12 @@ public class PermissionEvaluator
                 System.out.println("Please enter the filepath of the file you"
                         + "wish to load from: ");
                 String filepath = input.nextLine();
+                break;
+
             case 2:
+
+            case 3: 
+
                 
         }
                     
